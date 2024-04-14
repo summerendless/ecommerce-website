@@ -1,18 +1,152 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- icon -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>ShoppingMall</title>
   </head>
   <body>
-    <div id="header"></div>
-    <div id="nav"></div>
-    <script type="module">
-      import { loadHeader, loadNav } from "./src/js/script.js";
+    <!-- header -->
+    <header data-include-path="header.html" id="header"></header>
 
-      loadHeader();
-      loadNav();
-    </script>
+    <!-- <header>
+      <div class="top">
+        <nav class="top-nav">
+          <button type="button" class="top-nav-modal">
+            <i class="bx bxs-grid"></i>
+          </button>
+          <a href="index.html" class="top-title">SHOP</a>
+          <a href="cart.html" class="top-nav-cart">
+            <i class="bx bx-cart"></i>
+            <strong class="top-cart-count count-mobile"></strong>
+          </a>
+          <div class="top-category">
+            <ul class="category-box">
+              <li class="category-item">
+                <a href="index.html#goods">Goods</a>
+              </li>
+              <li class="category-item">
+                <div class="top-cart">
+                  <a href="cart.html">Cart</a>
+                  <strong class="top-cart-count count-desk"></strong>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="top-nav-category">
+          <ul class="category-box">
+            <li class="category-item">
+              <a href="index.html#goods">Goods</a>
+            </li>
+            <li class="category-item"><a href="cart.html">Cart</a></li>
+          </ul>
+          <button type="button" class="category-close">
+            <i class="bx bx-x" style="color: #ffffff"></i>
+          </button>
+        </div>
+      </div>
+    </header> -->
+
+    <!-- goods -->
+    <main id="goods" class="goods-page">
+      <div class="sec-top">
+        <h1 class="sec-tit">Goods</h1>
+        <p class="sec-desc goods-desc">Choose the product you like</p>
+      </div>
+      <div class="goods-sort">
+        <select name="color-choice" class="goods-item color-item">
+          <option selected>All</option>
+          <option
+            data-key="color"
+            data-value="fashion"
+            class="choice-sort select-fashion"
+          >
+            Fashion
+          </option>
+          <option
+            data-key="color"
+            data-value="beauty"
+            class="choice-sort select-beauty"
+          >
+            Beauty
+          </option>
+          <option
+            data-key="color"
+            data-value="grocery"
+            class="choice-sort select-grocery"
+          >
+            Grocery
+          </option>
+          <option
+            data-key="color"
+            data-value="kitchen"
+            class="choice-sort select-kitchen"
+          >
+            Kitchen
+          </option>
+          <option
+            data-key="color"
+            data-value="sport"
+            class="choice-sort select-sport"
+          >
+            Sports
+          </option>
+          <option
+            data-key="color"
+            data-value="home"
+            class="choice-sort select-home"
+          >
+            Home
+          </option>
+          <option
+            data-key="color"
+            data-value="pet"
+            class="choice-sort select-pet"
+          >
+            PetItems
+          </option>
+          <option
+            data-key="color"
+            data-value="fresh"
+            class="choice-sort select-fresh"
+          >
+            Fresh
+          </option>
+        </select>
+      </div>
+      <ul class="goods-container">
+            <!-- <li class="goods-card">
+              <div class="card-img-box">
+                <img src="${shoes.image}" alt="${shoes.productName}" class="card-img">
+              </div>
+              <div class="card-info">
+                <div class="card-title">
+                  <p>${shoes.productName}</p>
+                </div>
+                <div class="card-precis">
+                  <span class="card-price">${shoes.price.toLocaleString()}</span>
+                </div>
+              </div>
+            </li> -->
+      </ul>
+      <ol class="goods-pagination"></ol>
+    </main>
+
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/loadItems.js"></script>
   </body>
 </html>
