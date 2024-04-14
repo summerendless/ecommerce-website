@@ -1,5 +1,4 @@
 @charset "utf-8";
-
 .sec-top {
   text-align: center;
   padding: 1.5rem;
@@ -44,6 +43,7 @@
 
 .top-nav {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 1rem;
   font-size: 2rem;
@@ -91,6 +91,28 @@
   font-size: 1.4rem;
   top: -1px;
   right: 0;
+}
+
+.top-search {
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
+  align-items: center;
+  margin-left: 4px;
+  padding-bottom: 4px;
+  width: 30%;
+}
+
+.top-search input {
+  border: none;
+  padding-left: 4px;
+  width: 80%;
+  outline: none;
+  font-size: 18px;
+}
+
+.top-search input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
 }
 
 .top-nav .top-category {
@@ -387,6 +409,22 @@
   font-size: 1.3rem;
   text-align: center;
 }
+@media only screen and (max-width: 767px) {
+    .d-pc {
+      display: none;
+    }
+  
+    .d-mo {
+      display: flex;
+    }
+    .top-search {
+      width: auto;
+      padding: 0.5rem;
+      position: relative;
+      top: 0.3rem;
+      margin-left: 0;
+    }
+}
 
 /* iPhone 5 */
 @media only screen and (max-width: 375px) {
@@ -443,6 +481,17 @@
 
 /* 768px - 1024px */
 @media only screen and (min-width: 768px) {
+  .d-pc {
+    display: flex;
+  }
+  
+  .d-mo {
+    display: none;
+  }
+  .top-search {
+    width: auto;
+    border-bottom: 2px solid #000;
+  }
   .sec-top .sec-tit {
     font-size: 5rem;
     margin-bottom: 1rem;

@@ -1,24 +1,19 @@
 <div class="top">
   <nav class="top-nav">
-    <button type="button" class="top-nav-modal">
-      <i class="bx bxs-grid"></i>
-    </button>
+    <div class="top-search d-mo">
+      <button class="btnSearch" onclick="searchKeyWord();"><i class="bx bx-search bx-md"></i></button>
+    </div>
     <a href="index.html" class="top-title">SHOES</a>
     <a href="cart.html" class="top-nav-cart">
       <i class="bx bx-cart"></i>
       <strong class="top-cart-count count-mobile"></strong>
     </a>
+    <div class="top-search d-pc">
+      <input type="search" id="brandSearchInput" placeholder="seach here!" autofocus="autofocus">
+      <button class="btnSearch" onclick="searchKeyWord();"><i class="bx bx-search bx-md"></i></button>
+    </div>
     <div class="top-category">
       <ul class="category-box">
-        <!-- <li class="category-item">
-          <a href="index.html#new">New</a>
-        </li> -->
-        <li class="category-item">
-          <a href="index.html#goods">Goods</a>
-        </li>
-        <!-- <li class="category-item">
-          <a href="wishlist.html">Wish</a>
-        </li> -->
         <li class="category-item">
           <div class="top-cart">
             <a href="cart.html">Cart</a>
@@ -28,21 +23,4 @@
       </ul>
     </div>
   </nav>
-  <div class="top-nav-category">
-    <ul class="category-box">
-      <li class="category-item">
-        <a href="index.html#new">New</a>
-      </li>
-      <li class="category-item">
-        <a href="index.html#goods">Goods</a>
-      </li>
-      <!-- <li class="category-item">
-        <a href="wishlist.html">Wish</a>
-      </li> -->
-      <li class="category-item"><a href="cart.html">Cart</a></li>
-    </ul>
-    <button type="button" class="category-close">
-      <i class="bx bx-x" style="color: #ffffff"></i>
-    </button>
-  </div>
 </div>
