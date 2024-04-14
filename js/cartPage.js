@@ -90,7 +90,7 @@ export function loadCart(itemsBox) {
               console.log("already exist");
               alert("already exist");
             } else {
-              //장바구니 추가
+              //add in cart
               item.cart = true;
               item.order += 1;
               console.log("added in cart");
@@ -140,19 +140,19 @@ function singleGoodsControl(e, plusMinusBtns) {
         return item.id === parseInt(plusMinusBtn.dataset.id);
       });
       const pickGoods = saveCartGoods[cartdataId];
-      //cart-storage에서 수량 증감
+      //cart-storage minus
       if (plusMinusBtn.dataset.value === "plus") {
         pickGoods.order++;
       } else {
         pickGoods.order > 1 && pickGoods.order--;
       }
-      //cart-page에서 수량 증감
+      //cart-page plus
       goodsCount[cartdataId].innerHTML = pickGoods.order;
-      //수량에 따른 가격
+      //total price of list
       singleGoodsPrice[cartdataId].innerHTML = (
         pickGoods.price * pickGoods.order
       ).toLocaleString();
-      //변경사항 저장
+      //save
       saveCart(saveCartGoods);
     }
   });
