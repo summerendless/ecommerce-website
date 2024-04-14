@@ -1,18 +1,112 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- icon -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>ShoesMall</title>
   </head>
   <body>
-    <div id="header"></div>
-    <div id="nav"></div>
-    <script type="module">
-      import { loadHeader, loadNav } from "./src/js/script.js";
+    <!-- header -->
+    <header data-include-path="header.html"></header>
 
-      loadHeader();
-      loadNav();
-    </script>
+    <!-- goods -->
+    <main id="goods" class="goods-page">
+      <div class="sec-top">
+        <h1 class="sec-tit">Goods</h1>
+        <p class="sec-desc goods-desc">Choose the product you like</p>
+      </div>
+      <div class="goods-sort">
+        <select name="color-choice" class="goods-item color-item">
+          <option selected>All Color</option>
+          <option
+            data-key="color"
+            data-value="black"
+            class="choice-sort select-black"
+          >
+            Black
+          </option>
+          <option
+            data-key="color"
+            data-value="blue"
+            class="choice-sort select-blue"
+          >
+            Blue
+          </option>
+          <option
+            data-key="color"
+            data-value="brown"
+            class="choice-sort select-brown"
+          >
+            Brown
+          </option>
+          <option
+            data-key="color"
+            data-value="green"
+            class="choice-sort select-green"
+          >
+            Green
+          </option>
+          <option
+            data-key="color"
+            data-value="grey"
+            class="choice-sort select-grey"
+          >
+            Grey
+          </option>
+          <option
+            data-key="color"
+            data-value="pink"
+            class="choice-sort select-pink"
+          >
+            Pink
+          </option>
+          <option
+            data-key="color"
+            data-value="purple"
+            class="choice-sort select-purple"
+          >
+            Purple
+          </option>
+          <option
+            data-key="color"
+            data-value="red"
+            class="choice-sort select-red"
+          >
+            Red
+          </option>
+          <option
+            data-key="color"
+            data-value="white"
+            class="choice-sort select-white"
+          >
+            White
+          </option>
+          <option
+            data-key="color"
+            data-value="yellow"
+            class="choice-sort select-yellow"
+          >
+            Yellow
+          </option>
+        </select>
+      </div>
+      <ul class="goods-container"></ul>
+      <ol class="goods-pagination"></ol>
+    </main>
+
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>
