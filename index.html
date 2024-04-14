@@ -16,11 +16,50 @@
       href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <title>ShoesMall</title>
+    <title>ShoppingMall</title>
   </head>
   <body>
     <!-- header -->
-    <header data-include-path="header.html"></header>
+    <header data-include-path="header.html" id="header"></header>
+
+    <!-- <header>
+      <div class="top">
+        <nav class="top-nav">
+          <button type="button" class="top-nav-modal">
+            <i class="bx bxs-grid"></i>
+          </button>
+          <a href="index.html" class="top-title">SHOP</a>
+          <a href="cart.html" class="top-nav-cart">
+            <i class="bx bx-cart"></i>
+            <strong class="top-cart-count count-mobile"></strong>
+          </a>
+          <div class="top-category">
+            <ul class="category-box">
+              <li class="category-item">
+                <a href="index.html#goods">Goods</a>
+              </li>
+              <li class="category-item">
+                <div class="top-cart">
+                  <a href="cart.html">Cart</a>
+                  <strong class="top-cart-count count-desk"></strong>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="top-nav-category">
+          <ul class="category-box">
+            <li class="category-item">
+              <a href="index.html#goods">Goods</a>
+            </li>
+            <li class="category-item"><a href="cart.html">Cart</a></li>
+          </ul>
+          <button type="button" class="category-close">
+            <i class="bx bx-x" style="color: #ffffff"></i>
+          </button>
+        </div>
+      </div>
+    </header> -->
 
     <!-- goods -->
     <main id="goods" class="goods-page">
@@ -30,83 +69,84 @@
       </div>
       <div class="goods-sort">
         <select name="color-choice" class="goods-item color-item">
-          <option selected>All Color</option>
+          <option selected>All</option>
           <option
             data-key="color"
-            data-value="black"
-            class="choice-sort select-black"
+            data-value="fashion"
+            class="choice-sort select-fashion"
           >
-            Black
+            Fashion
           </option>
           <option
             data-key="color"
-            data-value="blue"
-            class="choice-sort select-blue"
+            data-value="beauty"
+            class="choice-sort select-beauty"
           >
-            Blue
+            Beauty
           </option>
           <option
             data-key="color"
-            data-value="brown"
-            class="choice-sort select-brown"
+            data-value="grocery"
+            class="choice-sort select-grocery"
           >
-            Brown
+            Grocery
           </option>
           <option
             data-key="color"
-            data-value="green"
-            class="choice-sort select-green"
+            data-value="kitchen"
+            class="choice-sort select-kitchen"
           >
-            Green
+            Kitchen
           </option>
           <option
             data-key="color"
-            data-value="grey"
-            class="choice-sort select-grey"
+            data-value="sport"
+            class="choice-sort select-sport"
           >
-            Grey
+            Sports
           </option>
           <option
             data-key="color"
-            data-value="pink"
-            class="choice-sort select-pink"
+            data-value="home"
+            class="choice-sort select-home"
           >
-            Pink
+            Home
           </option>
           <option
             data-key="color"
-            data-value="purple"
-            class="choice-sort select-purple"
+            data-value="pet"
+            class="choice-sort select-pet"
           >
-            Purple
+            PetItems
           </option>
           <option
             data-key="color"
-            data-value="red"
-            class="choice-sort select-red"
+            data-value="fresh"
+            class="choice-sort select-fresh"
           >
-            Red
-          </option>
-          <option
-            data-key="color"
-            data-value="white"
-            class="choice-sort select-white"
-          >
-            White
-          </option>
-          <option
-            data-key="color"
-            data-value="yellow"
-            class="choice-sort select-yellow"
-          >
-            Yellow
+            Fresh
           </option>
         </select>
       </div>
-      <ul class="goods-container"></ul>
+      <ul class="goods-container">
+            <!-- <li class="goods-card">
+              <div class="card-img-box">
+                <img src="${shoes.image}" alt="${shoes.productName}" class="card-img">
+              </div>
+              <div class="card-info">
+                <div class="card-title">
+                  <p>${shoes.productName}</p>
+                </div>
+                <div class="card-precis">
+                  <span class="card-price">${shoes.price.toLocaleString()}</span>
+                </div>
+              </div>
+            </li> -->
+      </ul>
       <ol class="goods-pagination"></ol>
     </main>
 
     <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/loadItems.js"></script>
   </body>
 </html>
