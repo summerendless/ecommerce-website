@@ -43,7 +43,7 @@
 
 .top-nav {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
   padding: 1rem;
   font-size: 2rem;
@@ -100,15 +100,17 @@
   align-items: center;
   margin-left: 4px;
   padding-bottom: 4px;
-  width: 30%;
+  position: relative;
 }
 
 .top-search input {
+  width: 100%;
   border: none;
-  padding-left: 4px;
-  width: 80%;
-  outline: none;
+  outline: 1px solid lightgray;
   font-size: 18px;
+  border-radius: 20px;
+  padding: 10px 20px;
+  background-color: #f4f4f4;
 }
 
 .top-search input::-webkit-search-cancel-button {
@@ -410,20 +412,19 @@
   text-align: center;
 }
 @media only screen and (max-width: 767px) {
-    .d-pc {
-      display: none;
-    }
-  
-    .d-mo {
-      display: flex;
-    }
-    .top-search {
-      width: auto;
-      padding: 0.5rem;
-      position: relative;
-      top: 0.3rem;
-      margin-left: 0;
-    }
+  .d-pc {
+    display: none;
+  }
+
+  .d-mo {
+    display: flex;
+  }
+  .top-search {
+    width: auto;
+    padding: 0.5rem;
+    position: relative;
+    margin-left: 0;
+  }
 }
 
 /* iPhone 5 */
@@ -484,13 +485,18 @@
   .d-pc {
     display: flex;
   }
-  
+
   .d-mo {
     display: none;
   }
   .top-search {
-    width: auto;
-    border-bottom: 2px solid #000;
+    width: 100%;
+    max-width: 50%;
+    position: relative;
+  }
+  .btnSearch {
+    position: absolute;
+    right: 20px;
   }
   .sec-top .sec-tit {
     font-size: 5rem;
@@ -521,22 +527,21 @@
 
   .top-nav .top-category .category-box {
     display: flex;
-    position: relative;
-    top: -3px;
   }
 
   .top-nav .top-category .category-box .category-item {
     font-size: 3rem;
-    padding: 1rem;
-    margin-right: 2.5rem;
+    /* padding: 1rem;
+    margin-right: 2.5rem; */
   }
 
   .category-item .top-cart .count-desk {
     display: inline-block;
     position: relative;
-    top: -2px;
-    width: 2.5rem;
-    font-size: 2rem;
+    top: -20px;
+    min-width: 1.8rem;
+    font-size: 1.5rem;
+    right: 10px;
   }
 
   .top .top-nav-category .category-close {
@@ -635,6 +640,20 @@
     padding: 1rem;
   }
 
+  .top-search {
+    max-width: 50%;
+  }
+  .btnSearch {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+  .top-nav .top-category .category-box {
+    display: flex;
+    position: relative;
+    top: 14px;
+  }
+
   .top-nav .top-title {
     font-size: 3rem;
     padding: 0 4rem;
@@ -643,9 +662,9 @@
   }
 
   .top-nav .top-category .category-box .category-item {
-    font-size: 2.2rem;
-    padding: 1.3rem;
-    margin-right: 6rem;
+    /* font-size: 2.2rem; */
+    /* padding: 1.3rem;
+    margin-right: 6rem; */
   }
 
   /* section-landing */
