@@ -3,6 +3,21 @@ const cartTotalPrice = document.querySelector(".total-price");
 const cartBox = document.querySelector(".cart-container-box");
 const cartEmpty = document.querySelector(".empty");
 
+const cartCheckOutButton = document.querySelector("#cart-checkout-btn");
+
+const closeCartCheckOutButton = document.querySelector("#close-cart-checkout-btn");
+
+const cartContent = document.querySelector("#cart-content");
+
+const clearCartButton = document.querySelector("#clear-cart-btn");
+
+const closeCartButton = document.querySelector("#close-cart-btn");
+
+if(cartContent !== null){
+  cartContent.style.display = "flex"
+  closeCartButton.onclick = closeCart;
+}
+
 //cart-storage
 export let saveCartGoods = localStorage.getItem("cartList")
   ? JSON.parse(localStorage.getItem("cartList"))
@@ -105,6 +120,36 @@ export function loadCart(itemsBox) {
   });
 }
 
+export function closeCartCheckoutPopup() {
+  document.getElementById("cart-checkout").style.display = "none";
+}
+
+export function validateForm() {
+  // Perform validation here
+  // For simplicity, always return true for now
+  return true;
+}
+
+export function openCartCheckoutPopup() {
+  document.getElementById("cart-checkout").style.display = "flex";
+}
+
+export function clearCart(){
+  saveCartGoods.splice(0, saveCartGoods.length);
+  while(cartContainer.firstChild){
+    cartContainer.firstChild.remove()
+  }
+  saveCart(saveCartGoods);
+  totalPrice();
+  totalCartCount();
+  cartEmpty.classList.remove("hidden");
+}
+
+export function closeCart(){
+  cartContent.style.display = "none";
+  history.back();
+}
+
 //delete cart
 function deleteCart(e) {
   const cartRemoveBtns = document.querySelectorAll(".item-remove");
@@ -125,7 +170,6 @@ function deleteCart(e) {
   });
   if (cartContainer.children.length === 0) {
     cartEmpty.classList.remove("hidden");
-    cartBox.classList.add("hidden");
   }
 }
 
@@ -158,6 +202,8 @@ function singleGoodsControl(e, plusMinusBtns) {
   });
 }
 
+
+
 //cart total number of goods
 export function totalCartCount() {
   const totalCounts = document.querySelectorAll(".top-cart-count");
@@ -186,4 +232,18 @@ function cartListHandler(e) {
 
 if (cartContainer !== null) {
   cartContainer.addEventListener("click", cartListHandler);
+}
+
+
+if(cartCheckOutButton !== null){
+  cartCheckOutButton.onclick = openCartCheckoutPopup;
+}
+
+if(closeCartCheckOutButton !== null){
+  closeCartCheckOutButton.onclick = closeCartCheckoutPopup;
+}
+
+if(clearCartButton !== null){
+  console.log(clearCartButton);
+  clearCartButton.onclick = clearCart;
 }
