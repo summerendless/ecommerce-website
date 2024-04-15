@@ -76,10 +76,22 @@ function displayItems(itemsBox, currentPageNum) {
       pageBtn.classList.remove("active");
     }
   });
+  loadCart(itemsBox);
 }
 
 //createHTML
 export function createHTML(item) {
+  let stockStatus;
+  const infoStock = document.querySelector(".info-stock");
+
+  if (item.stock) {
+    stockStatus = "In Stock";
+
+  } else {
+    stockStatus = "Out of Stock";
+    // infoStock.classList.add("out");
+  }
+
   return `
     <li class="goods-card">
       <a href=detail.html?${item.id} class="card-icon more-icon">
@@ -88,6 +100,7 @@ export function createHTML(item) {
         </div>
       </a>
       <div class="card-info">
+        <div class="info-stock ">${stockStatus}</div> 
         <div class="card-title">
           <p>${item.productName}</p>
         </div>
@@ -127,7 +140,7 @@ function pagination(itemsBox) {
 
       displayItems(itemsBox, currentPage);
 
-      loadCart(itemsBox);
+      //loadCart(itemsBox);
       // loadWish(itemsBox);
     }
   }
@@ -165,7 +178,7 @@ function selectFilter(e, itemsBox) {
     (item) => item[userChoice.key] === userChoice.value
   );
   pagination(userSelect);
-  loadCart(userSelect);
+  // loadCart(userSelect);
 }
 
 //main
@@ -176,6 +189,7 @@ asyncMarkupData()
   .then((itemsBox) => {
     totalCartCount();
     pagination(itemsBox);
+    // loadCart(itemsBox);
     loadDetail(itemsBox);
     selectHandler(itemsBox);
     paintCartPage(itemsBox);

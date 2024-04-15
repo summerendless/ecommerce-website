@@ -1,4 +1,17 @@
 @charset "utf-8";
+.d-flex {
+  display: flex;
+}
+.justify-center {justify-content: center;}
+.w-50 {width: 50%;}
+.gap-15 {gap: 15px;}
+       
+.btn-order {
+  width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
 .sec-top {
   text-align: center;
   padding: 1.5rem;
@@ -306,6 +319,10 @@
   border-radius: 10px;
   margin-bottom: 3.5rem;
 }
+.goods-card:hover{
+  transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+}
 
 .goods-card .card-img-box {
   width: 100%;
@@ -318,6 +335,11 @@
 
 .goods-card .card-info {
   text-align: center;
+}
+
+.goods-card .card-info .info-stock {
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .card-info .card-title {
