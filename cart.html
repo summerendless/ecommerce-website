@@ -26,64 +26,80 @@
     <section class="cart-page">
       <div class="popup-overlay" id="cart-content">
         <div class="popup-content">
-          <span class="close-btn" id="close-cart-btn">&times;</span>
-      <div class="empty">
-        <p>Your cart is empty</p>
-      </div>
-      <div class="cart-container-box">
-        <ul class="cart-container"></ul>
-        <div class="cart-total">
-          <dl class="total">
-            <dt class="total-title">Total</dt>
-            <dd class="total-price"></dd>
-          </dl>
+          <i class="bx bxs-x-circle close-btn" id="close-cart-btn" style="margin-top: 4px;"></i>
+          <div class="empty">
+            <p>Your cart is empty</p>
+          </div>
+          <div class="cart-container-box">
+            <ul class="cart-container"></ul>
+            <div class="cart-total">
+              <dl class="total">
+                <dt class="total-title">Total</dt>
+                <dd class="total-price"></dd>
+              </dl>
+            </div>
+            <div class="d-flex justify-center gap-15">
+              <div>
+                <button class="control-btn total-order" id="cart-checkout-btn">Place an order</button>
+              </div>
+              <div>
+                <button id="clear-cart-btn" class="control-btn total-order">Clear Cart</button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <span>
-            <button class="control-btn total-order" id="cart-checkout-btn">Order selected Items</button>
-          </span>
-          <span>
-            <button id="clear-cart-btn" class="control-btn total-order">Clear Cart</button>
-          </span>
-        </div>
       </div>
-      </div>
-    </div>
 
       <div class="popup-overlay" id="cart-checkout">
-        <div class="popup-content">
-          <span class="close-btn" id="close-cart-checkout-btn">&times;</span>
+        <div class="popup-content checkout-popup">
+          <i class="bx bxs-x-circle close-btn" id="close-cart-checkout-btn" style="margin-top: 4px;"></i>
           <h2>Delivery Details</h2>
           <form id="order-form" onsubmit="return validateForm()">
-            <label for="recipient-name">Recipient's Name:</label><br>
-            <input type="text" id="recipient-name" name="recipient-name" required><br><br>
+            <div class="d-form">
+              <label for="recipient-name">Recipient's Name:</label>
+              <input class="valid-input" type="text" id="recipient-name" name="recipient-name" required>
+            </div>
+         
+            <div class="d-form">
+              <label for="address-street">Street:</label>
+              <input class="valid-input" type="text" id="address-street" name="address-street" required>
+            </div>
             
-            <label for="address-street">Street:</label><br>
-            <input type="text" id="address-street" name="address-street" required><br><br>
+            <div class="d-form">
+              <label for="address-city">City/Suburb:</label>
+              <input class="valid-input" type="text" id="address-city" name="address-city" required>
+            </div>
+           
+            <div class="d-form">
+              <label for="address-state">State:</label>
+              <select id="address-state" name="address-state" required>
+                <option value="NSW">New South Wales</option>
+                <option value="VIC">Victoria</option>
+                <option value="QLD">Queensland</option>
+                <option value="WA">Western Australia</option>
+                <option value="SA">South Australia</option>
+                <option value="TAS">Tasmania</option>
+                <option value="ACT">Australian Capital Territory</option>
+                <option value="NT">Northern Territory</option>
+                <option value="Others">Others</option>
+              </select>
+            </div>
+
+            <div class="d-form">
+              <label for="mobile-number">Mobile Number:</label>
+              <input class="valid-input" type="tel" id="mobile-number" name="mobile-number" pattern="[0-9]{10}" required
+                title="Please enter 10 digit mobile number">
+            </div>
+         
+            <div class="d-form">
+              <label for="email-address">Email Address:</label>
+              <input class="valid-input" type="email" id="email-address" name="email-address" required>
+            </div>
+          
+            <div class="btn-order">
+              <input class="valid-input" type="submit" value="Submit Order" class="control-btn w-50">
+            </div>
             
-            <label for="address-city">City/Suburb:</label><br>
-            <input type="text" id="address-city" name="address-city" required><br><br>
-            
-            <label for="address-state">State:</label><br>
-            <select id="address-state" name="address-state" required>
-              <option value="NSW">New South Wales</option>
-              <option value="VIC">Victoria</option>
-              <option value="QLD">Queensland</option>
-              <option value="WA">Western Australia</option>
-              <option value="SA">South Australia</option>
-              <option value="TAS">Tasmania</option>
-              <option value="ACT">Australian Capital Territory</option>
-              <option value="NT">Northern Territory</option>
-              <option value="Others">Others</option>
-            </select><br><br>
-            
-            <label for="mobile-number">Mobile Number:</label><br>
-            <input type="tel" id="mobile-number" name="mobile-number" pattern="[0-9]{10}" required><br><br>
-            
-            <label for="email-address">Email Address:</label><br>
-            <input type="email" id="email-address" name="email-address" required><br><br>
-            
-            <input type="submit" value="Submit Order">
           </form>
         </div>
       </div>

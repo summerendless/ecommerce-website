@@ -25,6 +25,14 @@ export let saveCartGoods = localStorage.getItem("cartList")
 
 //createHTML - cart
 function cartCreateHTML(item) {
+  let stockStatus;
+
+  if (item.stock) {
+    stockStatus = "In Stock";
+  } else {
+    stockStatus = "Out of Stock";
+  }
+
   return `
     <li class="cart-goods">
       <div class="goods-thumb">
@@ -32,6 +40,7 @@ function cartCreateHTML(item) {
       </div>
       <div class="cart-info-box">
         <div class="item-info">
+          <div class="info-stock">${stockStatus}</div> 
           <dl>
             <dt class="info-name">${item.productName}</dt>
             <dd class="info-price">$${item.price.toLocaleString()}</dd>
@@ -82,6 +91,10 @@ export function paintCartPage() {
     if (cartContainer.children.length !== 0) {
       cartEmpty.classList.add("hidden");
       cartBox.classList.remove("hidden");
+    } else {
+      cartBox.classList.add("disabled");
+      document.getElementById("cart-checkout-btn").disabled = true;
+
     }
   }
   totalPrice();
@@ -125,13 +138,33 @@ export function closeCartCheckoutPopup() {
 }
 
 export function validateForm() {
-  // Perform validation here
-  // For simplicity, always return true for now
-  return true;
+  var isValid = true;
+  var inputs = document.querySelectorAll('input[required], select[required]');
+    for (var i = 0; i < inputs.length; i++) {
+      if (!inputs[i].checkValidity()) {
+          alert("빈 값이 있네요.");
+        isValid = false;
+        break;
+      }
+    }
+
+    var submitButton = document.querySelector('.btn-order input[type="submit"]');
+    if (isValid) {
+      submitButton.style.backgroundColor = ""; // 원래 색상으로 변경
+      submitButton.disabled = false;
+    } else {
+      submitButton.style.backgroundColor = "red";
+      submitButton.disabled = true;
+    }
+
+    return isValid;
 }
+
 
 export function openCartCheckoutPopup() {
   document.getElementById("cart-checkout").style.display = "flex";
+    validateForm();
+
 }
 
 export function clearCart(){
@@ -143,6 +176,9 @@ export function clearCart(){
   totalPrice();
   totalCartCount();
   cartEmpty.classList.remove("hidden");
+  cartBox.classList.add("disabled");
+  document.getElementById("cart-checkout-btn").disabled = true;
+
 }
 
 export function closeCart(){
@@ -170,6 +206,8 @@ function deleteCart(e) {
   });
   if (cartContainer.children.length === 0) {
     cartEmpty.classList.remove("hidden");
+    cartBox.classList.add("disabled");
+    document.getElementById("cart-checkout-btn").disabled = true;
   }
 }
 

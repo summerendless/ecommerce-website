@@ -6,7 +6,7 @@
       "price": "10",
       "color": "fashion",
       "image": "./assets/shoes_black.png",
-      "wish": false,
+      "stock": true,
       "cart": false,
       "order": 0
     },
@@ -16,7 +16,7 @@
       "price": "13",
       "color": "fashion",
       "image": "./assets/shoes_black2.png",
-      "wish": false,
+      "stock": true,
       "cart": false,
       "order": 0
     },
@@ -26,7 +26,7 @@
       "price": "12",
       "color": "beauty",
       "image": "./assets/shoes_blue.png",
-      "wish": false,
+      "stock": false,
       "cart": false,
       "order": 0
     },
@@ -36,7 +36,7 @@
       "price": "11",
       "color": "beauty",
       "image": "./assets/shoes_brown2.png",
-      "wish": false,
+      "stock": true,
       "cart": false,
       "order": 0
     },
@@ -46,7 +46,7 @@
       "price": "15",
       "color": "grocery",
       "image": "./assets/shoes_green.png",
-      "wish": false,
+      "stock": true,
       "cart": false,
       "order": 0
     },
@@ -56,7 +56,7 @@
       "price": "19",
       "color": "grocery",
       "image": "./assets/shoes_green2.png",
-      "wish": false,
+      "stock": true,
       "cart": false,
       "order": 0
     },
@@ -66,7 +66,7 @@
       "price": "16",
       "color": "grocery",
       "image": "./assets/shoes_grey.png",
-      "wish": false,
+      "stock": false,
       "cart": false,
       "order": 0
     },
@@ -76,7 +76,7 @@
       "price": "18",
       "color": "kitchen",
       "image": "./assets/shoes_pink.png",
-      "wish": false,
+      "stock": true,
       "cart": false,
       "order": 0
     },
@@ -86,7 +86,7 @@
       "price": "19",
       "color": "kitchen",
       "image": "./assets/shoes_pink2.png",
-      "wish": false,
+      "stock": true,
       "cart": false,
       "order": 0
     },
@@ -96,7 +96,7 @@
       "price": "21",
       "color": "sport",
       "image": "./assets/shoes_pink3.png",
-      "wish": false,
+      "stock": true,
       "cart": false,
       "order": 0
     },
@@ -106,7 +106,7 @@
       "price": "26",
       "color": "sport",
       "image": "./assets/shoes_purple.png",
-      "wish": false,
+      "stock": false,
       "cart": false,
       "order": 0
     },
@@ -116,7 +116,7 @@
       "price": "13",
       "color": "home",
       "image": "./assets/shoes_red.png",
-      "wish": false,
+      "stock": false,
       "cart": false,
       "order": 0
     },
@@ -126,7 +126,7 @@
       "price": "18",
       "color": "home",
       "image": "./assets/shoes_red2.png",
-      "wish": false,
+      "stock": false,
       "cart": false,
       "order": 0
     },
@@ -136,7 +136,7 @@
       "price": "17",
       "color": "home",
       "image": "./assets/shoes_red3.png",
-      "wish": false,
+      "stock": true,
       "cart": false,
       "order": 0
     },
@@ -146,7 +146,7 @@
       "price": "19",
       "color": "pet",
       "image": "./assets/shoes_white.png",
-      "wish": false,
+      "stock": false,
       "cart": false,
       "order": 0
     },
@@ -156,7 +156,7 @@
       "price": "24",
       "color": "pet",
       "image": "./assets/shoes_white2.png",
-      "wish": false,
+      "stock": true,
       "cart": false,
       "order": 0
     },
@@ -166,7 +166,7 @@
       "price": "15",
       "color": "pet",
       "image": "./assets/shoes_white3.png",
-      "wish": false,
+      "stock": false,
       "cart": false,
       "order": 0
     },
@@ -176,7 +176,7 @@
       "price": "19",
       "color": "fresh",
       "image": "./assets/shoes_yellow.png",
-      "wish": false,
+      "stock": false,
       "cart": false,
       "order": 0
     },
@@ -186,7 +186,7 @@
       "price": "20",
       "color": "fresh",
       "image": "./assets/shoes_yellow2.png",
-      "wish": false,
+      "stock": false,
       "cart": false,
       "order": 0
     }
