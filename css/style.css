@@ -8,9 +8,22 @@
        
 .btn-order {
   width: 100%;
-    display: flex;
-    justify-content: center;
-    padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.btn-order input {
+  display: block;
+  border: 1px solid black;
+  border-radius: 30px;
+  padding: 1rem;
+  text-align: center;
+}
+.btn-order input:hover {
+    background-color: black;
+      color: white;
+      transition: 100ms all ease-out;
 }
 .sec-top {
   text-align: center;
@@ -578,6 +591,10 @@
     display: none;
   }
 
+  .top-nav .top-nav-cart {
+    display: none;
+  }
+  .top-my{display: none;}
   /* section-landing */
   .landing .landing-image-box {
     top: -5rem;
@@ -648,6 +665,12 @@
   }
 }
 
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+.top-nav .top-category .category-box {
+  position: relative;
+  top: 0.6rem;
+}
+}
 /* desktop */
 @media only screen and (min-width: 1025px) {
   .sec-top .sec-tit {
@@ -660,6 +683,7 @@
   /* header-nav */
   .top-nav {
     padding: 1rem;
+    align-items: center;
   }
 
   .top-search {
@@ -672,15 +696,16 @@
   }
   .top-nav .top-category .category-box {
     display: flex;
-    position: relative;
-    top: 14px;
+    align-items: center;
+    /* position: relative;
+    top: 14px; */
   }
 
   .top-nav .top-title {
     font-size: 3rem;
     padding: 0 4rem;
-    position: relative;
-    top: 0.8rem;
+    /* position: relative;
+    top: 0.8rem; */
   }
 
   .top-nav .top-category .category-box .category-item {
@@ -750,3 +775,36 @@
     font-size: 1.7rem;
   }
 }
+
+
+
+.my-page {
+  height: calc(100vh - 140px);
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.my-page .d-form {
+      font-size: 1.5rem;
+        display: flex;
+        gap: 15px;
+        border: 1px solid #ddd;
+        border-bottom: none;
+        align-items: center;
+}
+
+.my-page .d-form:last-child {
+      border-bottom: 1px solid #ddd;
+}
+.my-page .d-form div:first-child {
+      padding: 10px;
+        width: 41%;
+        padding-right: 20px;
+        font-weight: 500;
+        border-right: 1px solid #ddd;
+        background: #f5f5f5;
+}
+
+h2 {font-size: 3rem;}
+
+.my-page h2 {padding-bottom: 15px;}

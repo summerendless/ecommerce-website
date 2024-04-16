@@ -54,25 +54,26 @@
         <div class="popup-content checkout-popup">
           <i class="bx bxs-x-circle close-btn" id="close-cart-checkout-btn" style="margin-top: 4px;"></i>
           <h2>Delivery Details</h2>
-          <form id="order-form" onsubmit="return validateForm()">
+          <form id="order-form">
+            <!-- onsubmit="return validateForm()" -->
             <div class="d-form">
-              <label for="recipient-name">Recipient's Name:</label>
-              <input class="valid-input" type="text" id="recipient-name" name="recipient-name" required>
+              <label for="displayData1">Recipient's Name:</label>
+              <input class="valid-input" type="text" id="displayData1" name="displayData1" required>
             </div>
          
             <div class="d-form">
-              <label for="address-street">Street:</label>
-              <input class="valid-input" type="text" id="address-street" name="address-street" required>
+              <label for="displayData2">Street:</label>
+              <input class="valid-input" type="text" id="displayData2" name="displayData2" required>
             </div>
             
             <div class="d-form">
-              <label for="address-city">City/Suburb:</label>
-              <input class="valid-input" type="text" id="address-city" name="address-city" required>
+              <label for="displayData3">City/Suburb:</label>
+              <input class="valid-input" type="text" id="displayData3" name="displayData3" required>
             </div>
            
             <div class="d-form">
-              <label for="address-state">State:</label>
-              <select id="address-state" name="address-state" required>
+              <label for="displayData4">State:</label>
+              <select id="displayData4" name="displayData4" required>
                 <option value="NSW">New South Wales</option>
                 <option value="VIC">Victoria</option>
                 <option value="QLD">Queensland</option>
@@ -86,18 +87,18 @@
             </div>
 
             <div class="d-form">
-              <label for="mobile-number">Mobile Number:</label>
-              <input class="valid-input" type="tel" id="mobile-number" name="mobile-number" pattern="[0-9]{10}" required
+              <label for="displayData5">Mobile Number:</label>
+              <input class="valid-input" type="tel" id="displayData5" name="displayData5" pattern="[0-9]{10}" required
                 title="Please enter 10 digit mobile number">
             </div>
          
             <div class="d-form">
-              <label for="email-address">Email Address:</label>
-              <input class="valid-input" type="email" id="email-address" name="email-address" required>
+              <label for="displayData6">Email Address:</label>
+              <input class="valid-input" type="email" id="displayData6" name="displayData6" required>
             </div>
           
             <div class="btn-order">
-              <input class="valid-input" type="submit" value="Submit Order" class="control-btn w-50">
+              <input class="valid-input" type="submit" value="Submit Order">
             </div>
             
           </form>
@@ -109,5 +110,32 @@
     <script type="module" src="./js/main.js"></script>
     <script type="module" src="./js/loadItems.js"></script>
     <script type="module" src="./js/cartPage.js"></script>
+    <script>
+      // document.getElementById("order-form").addEventListener("submit", function (event) {
+      //     event.preventDefault();
+
+        //   const displayData1 = document.getElementById("displayData1").value;
+        //   const displayData2 = document.getElementById("displayData2").value;
+        //   const displayData3 = document.getElementById("displayData3").value;
+        //   const displayData4 = document.getElementById("displayData4").value;
+        //   const displayData5 = document.getElementById("displayData5").value;
+        //   const displayData6 = document.getElementById("displayData6").value;
+
+        //   const dataObject = {
+        //     recipientName: displayData1,
+        //     street: displayData2,
+        //     citySuburb: displayData3,
+        //     state: displayData4,
+        //     mobileNumber: displayData5,
+        //     emailAddress: displayData6,
+        //   };
+
+        //   localStorage.setItem("savedData", JSON.stringify(dataObject));
+        //   alert('orderd successfully!');
+        //   document.getElementById("cart-checkout").style.display = "none";
+        //   window.location.href = "index.html";
+        //   clearCart();
+        // });
+    </script>
   </body>
 </html>
