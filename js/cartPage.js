@@ -137,33 +137,14 @@ export function closeCartCheckoutPopup() {
   document.getElementById("cart-checkout").style.display = "none";
 }
 
-export function validateForm() {
-  var isValid = true;
-  var inputs = document.querySelectorAll('input[required], select[required]');
-    for (var i = 0; i < inputs.length; i++) {
-      if (!inputs[i].checkValidity()) {
-          alert("빈 값이 있네요.");
-        isValid = false;
-        break;
-      }
-    }
-
-    var submitButton = document.querySelector('.btn-order input[type="submit"]');
-    if (isValid) {
-      submitButton.style.backgroundColor = ""; // 원래 색상으로 변경
-      submitButton.disabled = false;
-    } else {
-      submitButton.style.backgroundColor = "red";
-      submitButton.disabled = true;
-    }
-
-    return isValid;
-}
+// export function validateForm() {
+   
+// }
 
 
 export function openCartCheckoutPopup() {
   document.getElementById("cart-checkout").style.display = "flex";
-    validateForm();
+    // validateForm();
 
 }
 
