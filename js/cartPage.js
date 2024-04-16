@@ -163,8 +163,7 @@ export function validateForm() {
 
 export function openCartCheckoutPopup() {
   document.getElementById("cart-checkout").style.display = "flex";
-    validateForm();
-
+  //validateForm()
 }
 
 export function clearCart(){

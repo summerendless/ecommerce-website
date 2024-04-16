@@ -7,7 +7,7 @@ header('Content-Type: application/json');
 include_once('../core/initialize.php');
 
 //instantiate post
-$post - new Post($db);
+$post = new Post($db);
 
 //read DB
 $result = $post->read();
@@ -24,7 +24,9 @@ if($num > 0){
             'produc_id' => $product_id,
             'product_name' => $product_name,
             'unit_price' => $unit_price,
-            'unit_quantity' => $unit_quantity
+            'unit_quantity' => $unit_quantity,
+            'category'  => $category,
+            'image' => $image
         );
 
         array_push($post_arr['data'], $post_item);
