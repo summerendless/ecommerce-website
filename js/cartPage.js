@@ -13,6 +13,8 @@ const clearCartButton = document.querySelector("#clear-cart-btn");
 
 const closeCartButton = document.querySelector("#close-cart-btn");
 
+const orderForm = document.querySelector("#order-form");
+
 if(cartContent !== null){
   cartContent.style.display = "flex"
   closeCartButton.onclick = closeCart;
@@ -138,32 +140,12 @@ export function closeCartCheckoutPopup() {
 }
 
 export function validateForm() {
-  var isValid = true;
-  var inputs = document.querySelectorAll('input[required], select[required]');
-    for (var i = 0; i < inputs.length; i++) {
-      if (!inputs[i].checkValidity()) {
-          alert("빈 값이 있네요.");
-        isValid = false;
-        break;
-      }
-    }
-
-    var submitButton = document.querySelector('.btn-order input[type="submit"]');
-    if (isValid) {
-      submitButton.style.backgroundColor = ""; // 원래 색상으로 변경
-      submitButton.disabled = false;
-    } else {
-      submitButton.style.backgroundColor = "red";
-      submitButton.disabled = true;
-    }
-
-    return isValid;
 }
+
 
 
 export function openCartCheckoutPopup() {
   document.getElementById("cart-checkout").style.display = "flex";
-  //validateForm()
 }
 
 export function clearCart(){
@@ -239,6 +221,37 @@ function singleGoodsControl(e, plusMinusBtns) {
   });
 }
 
+function submitOrder(event) {
+  event.preventDefault();
+  console.log("Submitting form: ",event);
+
+  const displayData1 = document.getElementById("displayData1").value;
+  const displayData2 = document.getElementById("displayData2").value;
+  const displayData3 = document.getElementById("displayData3").value;
+  const displayData4 = document.getElementById("displayData4").value;
+  const displayData5 = document.getElementById("displayData5").value;
+  const displayData6 = document.getElementById("displayData6").value;
+
+  const dataObject = {
+    recipientName: displayData1,
+    street: displayData2,
+    citySuburb: displayData3,
+    state: displayData4,
+    mobileNumber: displayData5,
+    emailAddress: displayData6,
+  };
+
+  if (!validateForm(dataObject)) {
+    //Call server to validate in stock.
+  }
+
+  localStorage.setItem("savedData", JSON.stringify(dataObject));
+  alert('orderd successfully!');
+  document.getElementById("cart-checkout").style.display = "none";
+  window.location.href = "index.html";
+  clearCart();
+}
+
 
 
 //cart total number of goods
@@ -283,4 +296,9 @@ if(closeCartCheckOutButton !== null){
 if(clearCartButton !== null){
   console.log(clearCartButton);
   clearCartButton.onclick = clearCart;
+}
+
+if (orderForm !== null) {
+  console.log(orderForm)
+  orderForm.onsubmit = submitOrder;
 }

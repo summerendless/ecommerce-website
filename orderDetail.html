@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/cart.css" />
+    <link rel="stylesheet" href="./css/delivery.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>ShoppingMall</title>
+  </head>
+  <body>
+    <!-- header -->
+    <header data-include-path="header.html" id="header"></header>
+
+    <!-- my -->
+    <section class="my-page">
+        <h2>Order Details</h2>
+        <div class="d-form">
+            <div for="recipient-name">Recipient's Name:</div>
+            <div id="displayData1"></div>
+        </div>
+
+        <div class="d-form">
+          <div for="address-street">Street:</div>
+          <div id="displayData2"></div>
+        </div>
+
+        <div class="d-form">
+          <div for="address-city">City/Suburb:</div>
+          <div id="displayData3"></div>
+        </div>
+
+        <div class="d-form">
+          <div for="address-state">State:</div>
+          <div id="displayData4"></div>
+        </div>
+
+        <div class="d-form">
+          <div for="mobile-number">Mobile Number:</div>
+          <div id="displayData5"></div>
+        </div>
+
+        <div class="d-form">
+          <div for="email-address">Email Address:</div>
+          <div id="displayData6"></div>
+        </div>
+
+    </section>
+
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/loadItems.js"></script>
+    <script>
+     document.addEventListener("DOMContentLoaded", function () {
+        const savedData = JSON.parse(localStorage.getItem("savedData"));
+        if (savedData) {
+          document.getElementById("displayData1").innerText = savedData["recipientName"];
+          document.getElementById("displayData2").innerText = savedData["street"];
+          document.getElementById("displayData3").innerText = savedData["citySuburb"];
+          document.getElementById("displayData4").innerText = savedData["state"];
+          document.getElementById("displayData5").innerText = savedData["mobileNumber"];
+          document.getElementById("displayData6").innerText = savedData["emailAddress"];
+        } else {
+          document.querySelectorAll(".d-form > div[id^='displayData']").forEach(element => {
+            element.innerText = "no data here";
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
