@@ -98,7 +98,7 @@
             </div>
           
             <div class="btn-order">
-              <input class="valid-input" type="submit" value="Submit Order" class="control-btn w-50">
+              <input class="valid-input" type="submit" value="Submit Order">
             </div>
             
           </form>
@@ -111,31 +111,31 @@
     <script type="module" src="./js/loadItems.js"></script>
     <script type="module" src="./js/cartPage.js"></script>
     <script>
-      document.getElementById("order-form").addEventListener("submit", function (event) {
-          event.preventDefault();
+      // document.getElementById("order-form").addEventListener("submit", function (event) {
+      //     event.preventDefault();
 
-          const displayData1 = document.getElementById("displayData1").value;
-          const displayData2 = document.getElementById("displayData2").value;
-          const displayData3 = document.getElementById("displayData3").value;
-          const displayData4 = document.getElementById("displayData4").value;
-          const displayData5 = document.getElementById("displayData5").value;
-          const displayData6 = document.getElementById("displayData6").value;
+        //   const displayData1 = document.getElementById("displayData1").value;
+        //   const displayData2 = document.getElementById("displayData2").value;
+        //   const displayData3 = document.getElementById("displayData3").value;
+        //   const displayData4 = document.getElementById("displayData4").value;
+        //   const displayData5 = document.getElementById("displayData5").value;
+        //   const displayData6 = document.getElementById("displayData6").value;
 
-          const dataObject = {
-            recipientName: displayData1,
-            street: displayData2,
-            citySuburb: displayData3,
-            state: displayData4,
-            mobileNumber: displayData5,
-            emailAddress: displayData6,
-          };
+        //   const dataObject = {
+        //     recipientName: displayData1,
+        //     street: displayData2,
+        //     citySuburb: displayData3,
+        //     state: displayData4,
+        //     mobileNumber: displayData5,
+        //     emailAddress: displayData6,
+        //   };
 
-          localStorage.setItem("savedData", JSON.stringify(dataObject));
-          alert('orderd successfully!');
-          document.getElementById("cart-checkout").style.display = "none";
-          window.location.href = "index.html";
-          clearCart();
-        });
+        //   localStorage.setItem("savedData", JSON.stringify(dataObject));
+        //   alert('orderd successfully!');
+        //   document.getElementById("cart-checkout").style.display = "none";
+        //   window.location.href = "index.html";
+        //   clearCart();
+        // });
     </script>
   </body>
 </html>
