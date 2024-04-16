@@ -8,9 +8,22 @@
        
 .btn-order {
   width: 100%;
-    display: flex;
-    justify-content: center;
-    padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.btn-order input {
+  display: block;
+  border: 1px solid black;
+  border-radius: 30px;
+  padding: 1rem;
+  text-align: center;
+}
+.btn-order input:hover {
+    background-color: black;
+      color: white;
+      transition: 100ms all ease-out;
 }
 .sec-top {
   text-align: center;
