@@ -7,12 +7,13 @@ const detialCartBtn = document.querySelector(".detail-cart");
 const detialBtnBox = document.querySelector(".detail-info-control");
 
 //load detail goods
-export function loadDetail(shoesBox) {
+export function loadDetail(itemsBox) {
   let url = location.search;
   let params = url.substring(url.indexOf("?") + 1, url.length);
 
-  const detailGoods = shoesBox.find((shoes) => {
-    return shoes.id === parseInt(params);
+  console.log(itemsBox);
+  const detailGoods = itemsBox.find((items) => {
+    return items.id === parseInt(params);
   });
 
   paintDetail(detailGoods);
@@ -22,7 +23,7 @@ export function loadDetail(shoesBox) {
 function paintDetail(detailGoods) {
   if (detailGoods) {
     detailImage.src = detailGoods.image;
-    detailTitle.innerHTML = detailGoods.productName;
+    detailTitle.innerHTML = detailGoods.name;
     detialPrice.innerHTML = '$' + detailGoods.price.toLocaleString();
   }
 }

@@ -20,6 +20,20 @@ if(cartContent !== null){
   closeCartButton.onclick = closeCart;
 }
 
+export class Item {
+  constructor(id, name, price, image, in_stock, category, unit_quantity) {
+    this.id = id;
+    this.order = 0;
+    this.name = name;
+    this.price = price;
+    this.image = image;
+    this.in_stock = in_stock;
+    this.category = category;
+    this.unit_quantity = unit_quantity;
+    this.cart = false;
+  }
+}
+
 //cart-storage
 export let saveCartGoods = localStorage.getItem("cartList")
   ? JSON.parse(localStorage.getItem("cartList"))
@@ -27,24 +41,18 @@ export let saveCartGoods = localStorage.getItem("cartList")
 
 //createHTML - cart
 function cartCreateHTML(item) {
-  let stockStatus;
-
-  if (item.stock) {
-    stockStatus = "In Stock";
-  } else {
-    stockStatus = "Out of Stock";
-  }
+  let stockStatus = item.in_stock? item.in_stock + " in Stock": "Out of Stock";
 
   return `
     <li class="cart-goods">
       <div class="goods-thumb">
-        <img src="${item.image}" alt="${item.productName}" />
+        <img src="${item.image}" alt="${item.name}" />
       </div>
       <div class="cart-info-box">
         <div class="item-info">
           <div class="info-stock">${stockStatus}</div> 
           <dl>
-            <dt class="info-name">${item.productName}</dt>
+            <dt class="info-name">${item.name}</dt>
             <dd class="info-price">$${item.price.toLocaleString()}</dd>
           </dl>
           <button class="item-remove" type="button" data-id=${
@@ -113,6 +121,7 @@ export function loadCart(itemsBox) {
   cartbtns.forEach((cartbtn) => {
       cartbtn.addEventListener("click", (e) => {
       const goodsCart = e.target.parentNode;
+      console.log("Clicked");
       goodsCart &&
         itemsBox.find((item) => {
           if (item.id === parseInt(goodsCart.dataset.id)) {
@@ -221,7 +230,7 @@ function singleGoodsControl(e, plusMinusBtns) {
   });
 }
 
-function submitOrder(event) {
+async function submitOrder(event) {
   event.preventDefault();
   console.log("Submitting form: ",event);
 
@@ -241,15 +250,32 @@ function submitOrder(event) {
     emailAddress: displayData6,
   };
 
-  if (!validateForm(dataObject)) {
-    //Call server to validate in stock.
-  }
+  let products = [];
+  saveCartGoods.forEach((item) => {
+    products.push({"product_id": item.id, "count": item.order});
+  });
+  console.log("products", products);
 
-  localStorage.setItem("savedData", JSON.stringify(dataObject));
-  alert('orderd successfully!');
-  document.getElementById("cart-checkout").style.display = "none";
-  window.location.href = "index.html";
-  clearCart();
+  const response = await fetch("http://44.217.200.27/ecommerce/api/add_order.php",{
+                                method: 'POST',
+                                headers: {"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"},
+                                body: JSON.stringify({'user_email': dataObject.emailAddress, 'products': products})
+                              });
+
+  const json_response = await response.json();
+  console.log(json_response);
+
+  if(response.status == 200) {
+    localStorage.setItem("savedData", JSON.stringify(dataObject));
+    alert("Orderd successfully! Delivery details emailed to "+dataObject.emailAddress);
+    document.getElementById("cart-checkout").style.display = "none";
+    window.location.href = "index.html";
+    clearCart();
+  } else {
+    alert("Oder failed. Some items may be out of stock.");
+    window.location.href = "index.html";
+    clearCart();
+  }
 }
 
 
