@@ -3,6 +3,7 @@ import {
   loadCart,
   paintCartPage,
   saveCartGoods,
+  Item
 } from "./cartPage.js";
 import { loadDetail } from "./detailPage.js";
 
@@ -25,25 +26,32 @@ async function asyncMarkupData() {
 }
 
 // localStrage에 cart goods가 존재하는지 체크
-function storageCheck(json, saveGoods, mode) {
-  if (saveGoods) {
-    for (let i = 0; i < json.itemsBox.length; i++) {
-      saveGoods.forEach((goods) => {
-        if (goods.id === json.itemsBox[i].id) {
-          json.itemsBox[i][mode] = true;
-        }
-      });
-    }
-  }
-}
+// function storageCheck(json, saveGoods, mode) {
+//   if (saveGoods) {
+//     for (let i = 0; i < json.data.length; i++) {
+//       saveGoods.forEach((goods) => {
+//         if (goods.product_id === json.data[i].product_id) {
+//           json.data[i][mode] = true;
+//         }
+//       });
+//     }
+//   }
+// }
 
 //JSON fetch
 async function loadItems() {
-  const response = await fetch("./data/data.json");
+  const response = await fetch("http://localhost:8000/api/read.php");
   const json = await response.json();
+  console.log(json)
   // storageCheck(json, saveWishGoods, "wish");
-  storageCheck(json, saveCartGoods, "cart");
-  return json.itemsBox;
+  //storageCheck(json, saveCartGoods, "cart");
+  console.log(json.data)
+  let items = [];
+  json.data.forEach(element => {
+    let item = new Item(element.product_id, element.product_name, element.unit_price, "./assets/"+element.image, element.in_stock, element.category, element.unit_quantity);
+    items.push(item)
+  });
+  return items;
 }
 
 //list print
@@ -83,26 +91,18 @@ function displayItems(itemsBox, currentPageNum) {
 export function createHTML(item) {
   let stockStatus;
   const infoStock = document.querySelector(".info-stock");
-
-  if (item.stock) {
-    stockStatus = "In Stock";
-
-  } else {
-    stockStatus = "Out of Stock";
-    // infoStock.classList.add("out");
-  }
-
+  stockStatus = item.in_stock;
   return `
     <li class="goods-card">
       <a href=detail.html?${item.id} class="card-icon more-icon">
         <div class="card-img-box">
-          <img src="${item.image}" alt="${item.productName}" class="card-img">
+          <img src="${item.image}" alt="${item.name}" class="card-img">
         </div>
       </a>
       <div class="card-info">
-        <div class="info-stock ">${stockStatus}</div> 
+        <div class="info-stock ">${stockStatus > 0? stockStatus + " in Stock": "Out of Stock"}</div> 
         <div class="card-title">
-          <p>${item.productName}</p>
+          <p>${item.name}</p>
         </div>
         <div class="card-precis">
             <span class="card-price">$${item.price.toLocaleString()}</span>
