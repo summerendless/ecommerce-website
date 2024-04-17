@@ -1,7 +1,7 @@
 <?php
 
-    $db_user = 'root';
-    $db_password = '';
+    $db_user = 'ubuntu';
+    $db_password = 'ubuntupassword';
     $db_name = 'assignment1';
 
     $db = new PDO('mysql:host=127.0.0.1;dbname='.$db_name.';charset=utf8', $db_user, $db_password);
