@@ -41,24 +41,18 @@ export let saveCartGoods = localStorage.getItem("cartList")
 
 //createHTML - cart
 function cartCreateHTML(item) {
-  let stockStatus;
-
-  if (item.stock) {
-    stockStatus = "In Stock";
-  } else {
-    stockStatus = "Out of Stock";
-  }
+  let stockStatus = item.in_stock? item.in_stock + " in Stock": "Out of Stock";
 
   return `
     <li class="cart-goods">
       <div class="goods-thumb">
-        <img src="${item.image}" alt="${item.productName}" />
+        <img src="${item.image}" alt="${item.name}" />
       </div>
       <div class="cart-info-box">
         <div class="item-info">
           <div class="info-stock">${stockStatus}</div> 
           <dl>
-            <dt class="info-name">${item.productName}</dt>
+            <dt class="info-name">${item.name}</dt>
             <dd class="info-price">$${item.price.toLocaleString()}</dd>
           </dl>
           <button class="item-remove" type="button" data-id=${
