@@ -7,23 +7,21 @@ header('Content-Type: application/json');
 include_once('../core/initialize.php');
 
 //instantiate post
-$post = new Post($db);
+$product = new Product($db);
 
-//read DB
-$result = $post->read();
+$product->product_id = isset($_GET['product_id']) ? $_GET['product_id'] : die();
 
-$post->product_id = isset($_GET['product_id']) ? $_GET['product_id'] : die();
-
-$post->read_single();
+$product->read_single();
 
 
-$post_arr = $post? array(
-    'produc_id' => $post->product_id,
-    'product_name' => $post->product_name,
-    'unit_price' => $post->unit_price,
-    'unit_quantity' => $post->unit_quantity,
-    'category'  => $post->category,
-    'image' => $post->image
+$post_arr = $product? array(
+    'product_id' => $product->product_id,
+    'product_name' => $product->product_name,
+    'unit_price' => $product->unit_price,
+    'unit_quantity' => $product->unit_quantity,
+    'category'  => $product->category,
+    'image' => $product->image,
+    'in_stock' => $product->in_stock
 ): [];
 
 print_r(json_encode($post_arr));

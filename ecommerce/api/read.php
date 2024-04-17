@@ -7,10 +7,10 @@ header('Content-Type: application/json');
 include_once('../core/initialize.php');
 
 //instantiate post
-$post = new Post($db);
+$product = new Product($db);
 
 //read DB
-$result = $post->read();
+$result = $product->read();
 
 $num = $result->rowCount();
 
@@ -21,12 +21,13 @@ if($num > 0){
     while($row = $result->fetch(PDO::FETCH_ASSOC)){
         extract($row);
         $post_item = array(
-            'produc_id' => $product_id,
+            'product_id' => $product_id,
             'product_name' => $product_name,
             'unit_price' => $unit_price,
             'unit_quantity' => $unit_quantity,
             'category'  => $category,
-            'image' => $image
+            'image' => $image,
+            'in_stock' => $in_stock
         );
 
         array_push($post_arr['data'], $post_item);

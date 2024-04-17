@@ -12,5 +12,5 @@
 
     //core classes
     require_once(CORE_PATH.DS."product.php");
-
+    require_once(CORE_PATH.DS."order.php");
 ?>

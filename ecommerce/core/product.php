@@ -1,6 +1,6 @@
 <?php
 
-class Post {
+class Product {
     private $connection;
     private $table = 'products';
 
@@ -47,5 +47,30 @@ class Post {
         $this->category = $row['category'];
         $this->image = $row['image'];
       }
+    }
+    public function update_in_stock() {
+      $query = "update $this->table set in_stock = $this->in_stock where product_id = $this->product_id";
+      $stmt = $this->connection->prepare($query);
+      $stmt->execute();
+
+      $row = $stmt->fetch(PDO::FETCH_ASSOC);
+      if($row) {
+        $this->product_id = $row['product_id']; 
+        $this->product_name = $row['product_name'];
+        $this->unit_price = $row['unit_price'];
+        $this->unit_quantity = $row['unit_quantity'];
+        $this->in_stock = $row['in_stock'];
+        $this->category = $row['category'];
+        $this->image = $row['image'];
+      }
+    }
+
+    public function get_category() {
+      $query = "SELECT * FROM $this->table WHERE category = ?";
+      $stmt = $this->connection->prepare($query);
+      $stmt->bindParam(1, $this->category);
+      $stmt->execute();
+
+      return $stmt;
     }
 }
