@@ -262,7 +262,7 @@ async function submitOrder(event) {
   });
   console.log("products", products);
 
-  const response = await fetch("http://localhost:8000/api/add_order.php",{
+  const response = await fetch("http://44.217.200.27/ecommerce/api/add_order.php",{
                                 method: 'POST',
                                 headers: {"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"},
                                 body: JSON.stringify({'user_email': dataObject.emailAddress, 'products': products})

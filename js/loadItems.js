@@ -40,7 +40,7 @@ async function asyncMarkupData() {
 
 //JSON fetch
 async function loadItems() {
-  const response = await fetch("http://localhost:8000/api/read.php");
+  const response = await fetch("http://44.217.200.27/ecommerce/api/read.php");
   const json = await response.json();
   console.log(json)
   // storageCheck(json, saveWishGoods, "wish");
