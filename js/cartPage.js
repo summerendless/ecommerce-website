@@ -15,6 +15,8 @@ const closeCartButton = document.querySelector("#close-cart-btn");
 
 const orderForm = document.querySelector("#order-form");
 
+export let Categories = new Set([]);
+
 if(cartContent !== null){
   cartContent.style.display = "flex"
   closeCartButton.onclick = closeCart;

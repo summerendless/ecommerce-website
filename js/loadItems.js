@@ -3,7 +3,8 @@ import {
   loadCart,
   paintCartPage,
   saveCartGoods,
-  Item
+  Item,
+  Categories
 } from "./cartPage.js";
 import { loadDetail } from "./detailPage.js";
 
@@ -115,6 +116,37 @@ export function createHTML(item) {
 `;
 }
 
+function loadCategory(itemsBox) {
+  const selectContainer = document.querySelector(".goods-item");
+    let wholePage = itemsBox
+
+  if (selectContainer !== null) {
+    selectContainer.innerHTML = wholePage
+      .map((item) => {
+        let ret = "";
+        if (!Categories.has(item.category)) {
+          Categories.add(item.category);
+          ret = createCategory(item);
+          console.log(item.category);
+        }
+        return ret;
+      })
+      .join("");
+  }
+}
+
+export function createCategory(item) {
+  return `
+      <option
+        data-key=${item.category}
+        data-value=${item.category}
+        class="choice-sort select-food"
+      >
+        ${item.category}
+      </option>
+`;
+}
+
 //pagination paint
 function pagination(itemsBox) {
   const pageContainer = document.querySelector(".goods-pagination");
@@ -162,6 +194,7 @@ function paginationHTML(num) {
 //user selected 
 function selectHandler(itemsBox) {
   const sortContainer = document.querySelector(".goods-sort");
+
   if (sortContainer !== null) {
     sortContainer.addEventListener("change", (e) =>
       selectFilter(e, itemsBox)
@@ -174,9 +207,15 @@ function selectFilter(e, itemsBox) {
   const choiceSortBox = e.target;
   const userChoice =
     choiceSortBox.options[choiceSortBox.selectedIndex].dataset;
+
   const userSelect = itemsBox.filter(
-    (item) => item[userChoice.key] === userChoice.value
+    (item) => item.category === userChoice.value
+
   );
+  console.log(userChoice.key)
+  console.log(userChoice.value)
+  console.log(userSelect)
+
   pagination(userSelect);
   // loadCart(userSelect);
 }
@@ -187,7 +226,9 @@ asyncMarkupData()
     return loadItems();
   })
   .then((itemsBox) => {
+
     totalCartCount();
+    loadCategory(itemsBox);
     pagination(itemsBox);
     // loadCart(itemsBox);
     loadDetail(itemsBox);

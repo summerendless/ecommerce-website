@@ -272,7 +272,7 @@
 
 .new-item-link:hover .new-item {
   transition: all 0.1s;
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .new-box-list .new-item-link {
@@ -327,23 +327,37 @@
 }
 
 .goods-card {
-  padding: 2rem;
-  background-color: rgb(241, 241, 241);
-  border-radius: 10px;
-  margin-bottom: 3.5rem;
+    margin-right: 1rem;
+      padding: 1.2rem;
+      background-color: rgb(241, 241, 241);
+      border-radius: 10px;
+      margin-bottom: 3.5rem;
+      flex-basis: 30%;
+      flex-shrink: 0;
+      flex-grow: 1;
 }
+
 .goods-card:hover{
   transform: scale(1.1);
-    transition: all 0.3s ease-in-out;
+    transition: all 0.1s ease-in-out;
 }
 
 .goods-card .card-img-box {
   width: 100%;
+  position: relative;
+  padding-top: 100%;
 }
 
 .goods-card .card-img-box .card-img {
-  display: block;
-  width: inherit;
+  display: inline-block;
+    position: absolute;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      max-width: 100%;
+      max-height: 100%;
 }
 
 .goods-card .card-info {
@@ -351,8 +365,10 @@
 }
 
 .goods-card .card-info .info-stock {
-  font-size: 1rem;
+  font-size: 1.4rem;
   font-weight: 500;
+  padding: 10px 0 0 0;
+  color: coral;
 }
 
 .card-info .card-title {
@@ -460,6 +476,8 @@
     position: relative;
     margin-left: 0;
   }
+
+  .goods-card:nth-child(2n){margin-right: 0;}
 }
 
 /* iPhone 5 */
