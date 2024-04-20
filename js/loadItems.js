@@ -4,9 +4,12 @@ import {
   paintCartPage,
   saveCartGoods,
   Item,
-  Categories
+  Categories,
 } from "./cartPage.js";
 import { loadDetail } from "./detailPage.js";
+
+const searchInput = document.getElementById("searchInput");
+let lastLoadedItems = [];
 
 //header, footer markup data include
 async function asyncMarkupData() {
@@ -52,6 +55,7 @@ async function loadItems() {
     let item = new Item(element.product_id, element.product_name, element.unit_price, "./assets/"+element.image, element.in_stock, element.category, element.unit_quantity);
     items.push(item)
   });
+  lastLoadedItems = items;
   return items;
 }
 
@@ -219,6 +223,39 @@ function selectFilter(e, itemsBox) {
   pagination(userSelect);
   // loadCart(userSelect);
 }
+
+let searchValue = "";
+if(searchInput !== null){
+  searchInput.addEventListener("input", (event) => {
+      searchValue = event.target.value.trim().toLowerCase();
+  });
+
+  searchInput.addEventListener("keyup", async (event) => {
+    if(event.key == "Enter") {
+      let foundItems = [];
+      if(searchValue.length > 0) {
+        const items = lastLoadedItems;
+        for(let i=0; i<items.length; i++){
+          let item = items[i];
+          let itemName = item.name.trim().toLowerCase();
+          if(itemName === searchValue) {
+            foundItems.push(item);
+          } else {
+            let category = item.category;
+            category.trim().toLowerCase()
+            if(category === searchValue){
+              foundItems.push(item);
+            }
+          }
+        }
+        pagination(foundItems);
+        searchInput.value = "";
+        searchValue = "";
+      }
+    }
+  });
+} 
+
 
 //main
 asyncMarkupData()

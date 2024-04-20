@@ -20,46 +20,56 @@
   </head>
   <body>
     <!-- header -->
-    <header data-include-path="header.html" id="header"></header>
-
-    <!-- <header>
-      <div class="top">
-        <nav class="top-nav">
-          <button type="button" class="top-nav-modal">
-            <i class="bx bxs-grid"></i>
+    <!-- <header data-include-path="header.html" id="header"></header> -->
+    <div class="top">
+      <nav class="top-nav">
+        <div class="top-search d-mo">
+          <button class="btnSearch" onclick="searchKeyWord();">
+            <i class="bx bx-search bx-md"></i>
           </button>
-          <a href="index.html" class="top-title">SHOP</a>
+        </div>
+        <a href="index.html" class="top-title">ESHOP</a>
+        <div>
           <a href="cart.html" class="top-nav-cart">
             <i class="bx bx-cart"></i>
             <strong class="top-cart-count count-mobile"></strong>
           </a>
-          <div class="top-category">
-            <ul class="category-box">
-              <li class="category-item">
-                <a href="index.html#goods">Goods</a>
-              </li>
-              <li class="category-item">
-                <div class="top-cart">
-                  <a href="cart.html">Cart</a>
-                  <strong class="top-cart-count count-desk"></strong>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </nav>
-        <div class="top-nav-category">
+          <a href="orderDetail.html" class="top-my" style="padding-left: 10px"
+            >Orders</a
+          >
+        </div>
+        <div class="top-search d-pc">
+          <!-- <input
+            type="search"
+            id="brandSearchInput"
+            placeholder="Search products!"
+            autofocus="autofocus"
+          />
+          <button class="btnSearch" onclick="searchKeyWord();">
+            <i class="bx bx-search bx-md"></i>
+          </button> -->
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="snacks, food, Cat food, etc"
+          />
+          <button id="searchButton"><i class="bx bx-search bx-md"></i></button>
+        </div>
+        <div class="top-category">
           <ul class="category-box">
             <li class="category-item">
-              <a href="index.html#goods">Goods</a>
+              <div class="top-cart">
+                <a href="cart.html"><i class="bx bx-cart bx-lg"></i></a>
+                <strong class="top-cart-count count-desk"></strong>
+              </div>
             </li>
-            <li class="category-item"><a href="cart.html">Cart</a></li>
+            <li>
+              <a href="orderDetail.html" class="">Orders</a>
+            </li>
           </ul>
-          <button type="button" class="category-close">
-            <i class="bx bx-x" style="color: #ffffff"></i>
-          </button>
         </div>
-      </div>
-    </header> -->
+      </nav>
+    </div>
 
     <!-- goods -->
     <main id="goods" class="goods-page">
@@ -122,7 +132,7 @@
         </select>
       </div>
       <ul class="goods-container">
-            <!-- <li class="goods-card">
+        <!-- <li class="goods-card">
               <div class="card-img-box">
                 <img src="${shoes.image}" alt="${shoes.productName}" class="card-img">
               </div>
